@@ -19,5 +19,3 @@ dependencies = [
   "ruff>=0.14.14",
 ]
 
-[tool.uv]
-dev-dependencies = []

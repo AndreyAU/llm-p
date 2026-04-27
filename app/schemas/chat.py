@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, EmailStr, Field
 
 
 class ChatRequest(BaseModel):
@@ -21,3 +21,8 @@ class ChatMessagePublic(BaseModel):
     created_at: datetime
 
     model_config = {"from_attributes": True}
+
+
+class ChatHistoryDeleteResponse(BaseModel):
+    email: EmailStr
+    detail: str

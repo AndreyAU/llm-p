@@ -66,7 +66,7 @@ OPENROUTER_MODEL=openai/gpt-4o-mini
 
 ### 5. Запуск
 
-uv run uvicorn app.main:app --reload
+uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 Swagger:  
 http://127.0.0.1:8000/docs

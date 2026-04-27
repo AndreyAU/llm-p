@@ -30,28 +30,36 @@
 
 ### 1. Клонирование
 
+```bash
 git clone https://github.com/AndreyAU/llm-p.git
 cd llm-p
+```
 
 ---
 
 ### 2. Создание окружения
 
+```bash
 uv venv
 source .venv/bin/activate
+```
 
 ---
 
 ### 3. Установка зависимостей
 
+```bash
 uv pip compile pyproject.toml -o requirements.txt
 uv pip install -r requirements.txt
+```
 
 ---
 
 ### 4. Настройка окружения
 
+```bash
 cp .env.example .env
+```
 
 Пример:
 
@@ -60,13 +68,15 @@ JWT_ALG=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30  
 
 OPENROUTER_API_KEY=your_api_key  
-OPENROUTER_MODEL=openai/gpt-4o-mini  
+OPENROUTER_MODEL=stepfun/step-3.5-flash:free
 
 ---
 
 ### 5. Запуск
 
+```bash
 uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
 
 Swagger:  
 http://127.0.0.1:8000/docs
@@ -75,7 +85,9 @@ http://127.0.0.1:8000/docs
 
 ## 🧪 Проверка кода
 
+```bash
 uv run ruff check .
+```
 
 ![Ruff](screenshots/ruff.png)
 
@@ -123,7 +135,7 @@ POST /auth/login
 POST /chat
 
 {
-  "prompt": "Что такое Python?",
+  "prompt": "Пользователь student_andreenko@email.com спрашивает: что такое Python?"
   "system": "Отвечай кратко",
   "max_history": 5,
   "temperature": 0.7
@@ -159,7 +171,9 @@ DELETE /chat/history
 
 GET /chat/history
 
+```json
 []
+```
 
 ![Empty](screenshots/chat_history_empty.png)
 
